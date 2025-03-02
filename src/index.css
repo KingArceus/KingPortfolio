@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl font-bold text-primary-800 mb-6 font-heading;
+  }
+  
+  .section-subtitle {
+    @apply text-xl font-semibold text-primary-700 mb-4 font-heading;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-200 text-secondary-800 hover:bg-secondary-300 focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-primary-300 last:border-l-0 last:pb-0;
+  }
+  
+  .timeline-dot {
+    @apply absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-500;
+  }
+  
+  .skill-tag {
+    @apply px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 m-1;
+  }
+}
