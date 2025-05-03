@@ -41,7 +41,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
+        {window.location.pathname !== '/' && <Footer />}
       </div>
     </Router>
   );

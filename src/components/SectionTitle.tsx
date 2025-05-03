@@ -8,7 +8,7 @@ interface SectionTitleProps {
 function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
     <motion.div 
-      className="mb-10 text-center"
+      className="mb-12 text-center"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

@@ -49,25 +49,27 @@ function Projects() {
   ];
 
   return (
-    <div className="pt-32 pb-20 px-4">
-      <div className="container mx-auto">
-        <SectionTitle 
-          title="Projects" 
-          subtitle="A showcase of my recent work and technical projects"
-        />
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={index}
-              title={project.title}
-              description={project.description}
-              technologies={project.technologies}
-              githubLink={project.githubLink}
-              demoLink={project.demoLink}
-              index={index}
-            />
-          ))}
+    <div className="min-h-screen bg-gray-900">
+      <div className="pt-32 pb-20 px-4">
+        <div className="container mx-auto">
+          <SectionTitle 
+            title="Projects" 
+            subtitle="A showcase of my recent work and technical projects"
+          />
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard 
+                key={index}
+                title={project.title}
+                description={project.description}
+                technologies={project.technologies}
+                githubLink={project.githubLink}
+                demoLink={project.demoLink}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

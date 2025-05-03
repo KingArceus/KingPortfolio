@@ -46,134 +46,136 @@ function Skills() {
   ];
 
   return (
-    <div className="pt-32 pb-20 px-4">
-      <div className="container mx-auto">
-        <SectionTitle 
-          title="Skills & Expertise" 
-          subtitle="A comprehensive overview of my technical skills and competencies"
-        />
-        
-        {/* Programming Skills */}
-        <div className="mb-16">
-          <motion.h3 
-            className="section-subtitle flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaCode className="mr-2 text-primary-600" /> Programming Languages
-          </motion.h3>
+    <div className="min-h-screen bg-gray-900">
+      <div className="pt-32 pb-20 px-4">
+        <div className="container mx-auto">
+          <SectionTitle 
+            title="Skills & Expertise" 
+            subtitle="A comprehensive overview of my technical skills and competencies"
+          />
           
-          <div className="card">
-            <div className="max-w-3xl mx-auto">
-              {programmingSkills.map((skill, index) => (
-                <SkillBar 
-                  key={index} 
-                  name={skill.name} 
-                  level={skill.level} 
-                />
-              ))}
+          {/* Programming Skills */}
+          <div className="mb-16">
+            <motion.h3 
+              className="text-2xl font-bold text-white mb-6 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaCode className="mr-2 text-blue-400" /> Programming Languages
+            </motion.h3>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="max-w-3xl mx-auto">
+                {programmingSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    name={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* Database Skills */}
-        <div className="mb-16">
-          <motion.h3 
-            className="section-subtitle flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaDatabase className="mr-2 text-primary-600" /> Database Technologies
-          </motion.h3>
           
-          <div className="card">
-            <div className="max-w-3xl mx-auto">
-              {databaseSkills.map((skill, index) => (
-                <SkillBar 
-                  key={index} 
-                  name={skill.name} 
-                  level={skill.level} 
-                />
-              ))}
+          {/* Database Skills */}
+          <div className="mb-16">
+            <motion.h3 
+              className="text-2xl font-bold text-white mb-6 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaDatabase className="mr-2 text-blue-400" /> Database Technologies
+            </motion.h3>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="max-w-3xl mx-auto">
+                {databaseSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    name={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* ETL Skills */}
-        <div className="mb-16">
-          <motion.h3 
-            className="section-subtitle flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaCogs className="mr-2 text-primary-600" /> ETL & Data Processing
-          </motion.h3>
           
-          <div className="card">
-            <div className="max-w-3xl mx-auto">
-              {etlSkills.map((skill, index) => (
-                <SkillBar 
-                  key={index} 
-                  name={skill.name} 
-                  level={skill.level} 
-                />
-              ))}
+          {/* ETL Skills */}
+          <div className="mb-16">
+            <motion.h3 
+              className="text-2xl font-bold text-white mb-6 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaCogs className="mr-2 text-blue-400" /> ETL & Data Processing
+            </motion.h3>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="max-w-3xl mx-auto">
+                {etlSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    name={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* DevOps Skills */}
-        <div className="mb-16">
-          <motion.h3 
-            className="section-subtitle flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaTools className="mr-2 text-primary-600" /> DevOps & CI/CD
-          </motion.h3>
           
-          <div className="card">
-            <div className="max-w-3xl mx-auto">
-              {devOpsSkills.map((skill, index) => (
-                <SkillBar 
-                  key={index} 
-                  name={skill.name} 
-                  level={skill.level} 
-                />
-              ))}
+          {/* DevOps Skills */}
+          <div className="mb-16">
+            <motion.h3 
+              className="text-2xl font-bold text-white mb-6 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaTools className="mr-2 text-blue-400" /> DevOps & CI/CD
+            </motion.h3>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="max-w-3xl mx-auto">
+                {devOpsSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    name={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* Soft Skills */}
-        <div>
-          <motion.h3 
-            className="section-subtitle flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <FaUsers className="mr-2 text-primary-600" /> Soft Skills & Collaboration
-          </motion.h3>
           
-          <div className="card">
-            <div className="max-w-3xl mx-auto">
-              {softSkills.map((skill, index) => (
-                <SkillBar 
-                  key={index} 
-                  name={skill.name} 
-                  level={skill.level} 
-                />
-              ))}
+          {/* Soft Skills */}
+          <div>
+            <motion.h3 
+              className="text-2xl font-bold text-white mb-6 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaUsers className="mr-2 text-blue-400" /> Soft Skills & Collaboration
+            </motion.h3>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="max-w-3xl mx-auto">
+                {softSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    name={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

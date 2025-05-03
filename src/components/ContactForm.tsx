@@ -1,6 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com';
 
 interface FormData {
   name: string;
@@ -77,21 +76,25 @@ function ContactForm() {
 
   return (
     <motion.div
-      className="card"
+      className="bg-gray-800 rounded-lg shadow-lg p-6"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
       {status.submitted && (
-        <div className={`mb-4 p-3 rounded ${status.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+        <div className={`mb-4 p-3 rounded ${
+          status.success 
+            ? 'bg-green-900/50 text-green-400 border border-green-700' 
+            : 'bg-red-900/50 text-red-400 border border-red-700'
+        }`}>
           {status.message}
         </div>
       )}
       
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-secondary-700 mb-2">
+          <label htmlFor="name" className="block text-gray-300 mb-2">
             Name
           </label>
           <input
@@ -101,12 +104,12 @@ function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         
         <div className="mb-4">
-          <label htmlFor="email" className="block text-secondary-700 mb-2">
+          <label htmlFor="email" className="block text-gray-300 mb-2">
             Email
           </label>
           <input
@@ -116,12 +119,12 @@ function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         
         <div className="mb-4">
-          <label htmlFor="message" className="block text-secondary-700 mb-2">
+          <label htmlFor="message" className="block text-gray-300 mb-2">
             Message
           </label>
           <textarea
@@ -131,14 +134,14 @@ function ContactForm() {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           ></textarea>
         </div>
         
         <button
           type="submit"
           disabled={loading}
-          className="btn btn-primary w-full flex justify-center items-center"
+          className="w-full px-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors duration-200 flex justify-center items-center"
         >
           {loading ? 'Sending...' : 'Send Message'}
         </button>
