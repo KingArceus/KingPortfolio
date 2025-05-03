@@ -1,40 +1,11 @@
 import { motion } from 'framer-motion';
-import { FaBriefcase } from 'react-icons/fa';
 import SectionTitle from '../components/SectionTitle';
 import TimelineItem from '../components/TimelineItem';
-import { ExperienceType } from '../types';
 
 function Experience() {
-  const experiences: ExperienceType[] = [
-    {
-      year: '2023 - Present',
-      title: 'Senior Software Developer',
-      company: 'AllianceBernstein',
-      description: 'Developing business solutions using C# .NET and SQL Server for financial customers. Leading ETL development with SSIS and implementing CI/CD pipelines with GitHub Actions.'
-    },
-    {
-      year: '2020 - 2023',
-      title: 'Software Developer',
-      company: 'Tech Solutions Inc.',
-      description: 'Built and maintained enterprise applications using C# .NET and SQL Server. Designed and implemented data integration solutions using SSIS. Collaborated with cross-functional teams to deliver high-quality software products.'
-    },
-    {
-      year: '2019 - 2020',
-      title: 'Junior Developer',
-      company: 'StartUp Innovations',
-      description: 'Assisted in the development of web applications using .NET Core. Worked on database design and implementation using SQL Server. Participated in Agile development processes and daily stand-ups.'
-    },
-    {
-      year: '2018 - 2019',
-      title: 'Software Development Intern',
-      company: 'Tech Internships Co.',
-      description: 'Gained hands-on experience with C# and .NET Framework. Assisted senior developers with coding tasks and bug fixes. Participated in code reviews and learned industry best practices.'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="pt-32 pb-20 px-4">
+      <div className="pt-24 pb-20 px-10">
         <div className="container mx-auto">
           <SectionTitle 
             title="Experience" 

@@ -4,7 +4,7 @@ import SectionTitle from '../components/SectionTitle';
 const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="pt-32 pb-20 px-4">
+      <div className="pt-24 pb-20 px-10">
         <div className="container mx-auto">
           <SectionTitle 
             title="About Me" 

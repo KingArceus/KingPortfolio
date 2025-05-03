@@ -16,16 +16,17 @@ function Navbar({ isScrolled }: NavbarProps) {
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-xl py-2' : 'bg-transparent py-4'
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${
+        isScrolled ? 'shadow-xl py-2' : 'py-4'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-10 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-white font-heading">
-          Portfolio
+          <span className="text-blue-400">Khang</span>
+          <span className="font-bold text-white">Dynasty</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -114,7 +115,7 @@ function Navbar({ isScrolled }: NavbarProps) {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-md z-40 transform transition-transform duration-300 ease-in-out ${
+          className={`md:hidden fixed inset-0 bg-gray-900/80 backdrop-blur-lg z-40 transform transition-transform duration-300 ease-in-out ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
