@@ -47,8 +47,7 @@ function Skills() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="pt-24 pb-20 px-10">
-        <div className="container mx-auto">
+      <div className="container mx-auto pt-24 pb-20 px-10">
           <SectionTitle 
             title="Skills & Expertise" 
             subtitle="A comprehensive overview of my technical skills and competencies"
@@ -179,7 +178,6 @@ function Skills() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ function Navbar({ isScrolled }: NavbarProps) {
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${
         isScrolled ? 'shadow-xl py-2' : 'py-4'
       }`}
       initial={{ y: -100 }}
@@ -36,8 +36,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
@@ -48,8 +48,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
@@ -60,8 +60,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
@@ -72,8 +72,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
@@ -84,8 +84,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
@@ -96,8 +96,8 @@ function Navbar({ isScrolled }: NavbarProps) {
             className={({ isActive }) =>
               `font-medium transition-colors duration-200 ${
                 isActive
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-600'
+                  : 'text-blue-500 hover:text-blue-600'
               }`
             }
           >
