@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
 import SectionTitle from '../components/SectionTitle';
 import ContactForm from '../components/ContactForm';
+import { contactConfig } from '../../config';
 
 const Contact: React.FC = () => {
   return (
@@ -19,74 +20,71 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+            <h3 className="section-subtitle">Let's Connect</h3>
             <p className="text-gray-400 mb-8">
-              I'm currently available for freelance work and full-time positions.
-              If you have a project that needs my expertise or if you're looking to hire,
-              feel free to reach out using the contact form or through any of the channels below.
+              {contactConfig.description}
             </p>
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
-                <FaEnvelope className="text-blue-400 mt-1 mr-3" size={20} />
+                <FaEnvelope className="text-primary-600 my-auto mr-4" size={28} />
                 <div>
                   <h4 className="font-semibold text-white">Email</h4>
                   <a
-                    href="mailto:your.email@example.com"
-                    className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                    href={`mailto:${contactConfig.email}`}
+                    className="text-primary-600 hover:text-primary-500 transition-colors duration-200"
                   >
-                    your.email@example.com
+                    {contactConfig.email}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaLinkedin className="text-blue-400 mt-1 mr-3" size={20} />
+                <FaLinkedin className="text-primary-600 my-auto mr-4" size={28} />
                 <div>
                   <h4 className="font-semibold text-white">LinkedIn</h4>
                   <a
-                    href="https://linkedin.com/in/yourusername"
+                    href={contactConfig.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                    className="text-primary-600 hover:text-primary-500 transition-colors duration-200"
                   >
-                    linkedin.com/in/yourusername
+                    {contactConfig.social.linkedin}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaGithub className="text-blue-400 mt-1 mr-3" size={20} />
+                <FaGithub className="text-primary-600 my-auto mr-4" size={28} />
                 <div>
                   <h4 className="font-semibold text-white">GitHub</h4>
                   <a
-                    href="https://github.com/yourusername"
+                    href={contactConfig.social.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                    className="text-primary-600 hover:text-primary-500 transition-colors duration-200"
                   >
-                    github.com/yourusername
+                    {contactConfig.social.github}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaMapMarkerAlt className="text-blue-400 mt-1 mr-3" size={20} />
+                <FaMapMarkerAlt className="text-primary-600 my-auto mr-4" size={28} />
                 <div>
                   <h4 className="font-semibold text-white">Location</h4>
-                  <p className="text-gray-400">New York, NY</p>
+                  <p className="text-gray-400">{contactConfig.location}</p>
                 </div>
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold text-white mb-2">Resume</h4>
+            <div className="flex flex-wrap gap-4">
               <a
                 href="/resume.pdf"
                 download
-                className="btn bg-blue-600 hover:bg-blue-700 text-white"
+                className="btn btn-primary flex items-center"
               >
-                Download Resume
+                <FaDownload className="mr-2" /> Download Resume
               </a>
             </div>
           </motion.div>
@@ -97,7 +95,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
+            <h3 className="section-subtitle">Send Me a Message</h3>
             <ContactForm />
           </motion.div>
         </div>

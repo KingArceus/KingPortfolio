@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
+import { aboutConfig } from '../../config';
+import { FaDownload, FaGraduationCap, FaLaptopCode } from 'react-icons/fa';
 
 const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900">
       <div className="container mx-auto pt-24 pb-20 px-10">
         <SectionTitle
-          title="About Me"
-          subtitle="Get to know more about my background and expertise"
+          title={aboutConfig.title}
+          subtitle={aboutConfig.description}
         />
 
         <motion.div
@@ -18,48 +20,39 @@ const About: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Who I Am</h3>
-            <p className="text-gray-400 mb-6">
-              I am a passionate software developer with expertise in C# .NET, SQL Server, and ETL development.
-              With a strong foundation in database management and data integration, I specialize in creating
-              efficient and scalable solutions for complex business problems.
-            </p>
-            <p className="text-gray-400 mb-6">
-              My journey in software development began with a deep interest in solving real-world problems
-              through technology. Over the years, I've worked on various projects ranging from data pipelines
-              to enterprise applications, always focusing on delivering high-quality, maintainable code.
-            </p>
-            <p className="text-gray-400">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source
-              projects, or sharing my knowledge with the developer community.
-            </p>
-          </div>
+            <h3 className="section-subtitle">Who I Am</h3>
+            {aboutConfig.introduction.map((paragraph, index) => (
+              <p
+                key={index}
+                className={'text-gray-400 mb-6'}
+              >
+                {paragraph}
+              </p>
+            ))}
 
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-6">My Expertise</h3>
-            <div className="space-y-4">
-              <div className="bg-gray-800 p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-white mb-2">Backend Development</h4>
-                <p className="text-gray-400">
-                  Extensive experience in C# .NET development, API design, and database optimization.
-                </p>
-              </div>
-
-              <div className="bg-gray-800 p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-white mb-2">Data Integration</h4>
-                <p className="text-gray-400">
-                  Proficient in ETL development using SSIS, data warehousing, and data pipeline automation.
-                </p>
-              </div>
-
-              <div className="bg-gray-800 p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-white mb-2">DevOps</h4>
-                <p className="text-gray-400">
-                  Skilled in CI/CD implementation, GitHub Actions, and automated deployment processes.
-                </p>
-              </div>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="/resume.pdf"
+                download
+                className="btn btn-primary flex items-center"
+              >
+                <FaDownload className="mr-2" /> Download Resume
+              </a>
             </div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <img
+              src="/squirtle.png"
+              alt="Profile"
+              className="z-10 w-72 h-72 object-cover rounded-full border-4 border-white shadow-xl mx-auto"
+            />
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -69,19 +62,39 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-6">Education & Certifications</h3>
+          <h3 className="section-subtitle flex items-center">
+            <FaGraduationCap className="mr-2 text-primary-500" /> Education & Certifications
+          </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h4 className="text-xl font-semibold text-white mb-2">Bachelor's Degree in Computer Science</h4>
-              <p className="text-gray-400">University Name, Year</p>
-            </div>
-
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h4 className="text-xl font-semibold text-white mb-2">Microsoft Certified Solutions Developer</h4>
-              <p className="text-gray-400">Microsoft, Year</p>
-            </div>
+            {aboutConfig.education.map((item, index) => (
+              <div className="bg-gray-800 p-6 rounded-lg" key={index}>
+                <h4 className="text-xl font-semibold text-gray-100 mb-1">{item.title}</h4>
+                <p className="text-primary-400">
+                  {item.institution}
+                </p>
+                <p className="text-primary-600">
+                  {item.year}
+                </p>
+              </div>
+            ))}
           </div>
         </motion.div>
+
+        <div className="mt-16">
+          <h3 className="section-subtitle flex items-center">
+            <FaLaptopCode className="mr-2 text-primary-500" /> My Expertise
+          </h3>
+          <div className="space-y-4">
+            {aboutConfig.expertise.map((item, index) => (
+              <div className="bg-gray-800 p-6 rounded-lg" key={index}>
+                <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
+                <p className="text-gray-400">
+                  {item.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

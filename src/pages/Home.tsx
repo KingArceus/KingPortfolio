@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { homeConfig, contactConfig } from '../../config';
 
 const Home: React.FC = () => {
     return (
@@ -15,14 +16,13 @@ const Home: React.FC = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-heading">
-                            Hi, I'm <span className="text-blue-400">Khang Thanh Pham</span>
+                            Hi, I'm <span className="text-primary-400">{homeConfig.fullName}</span>
                         </h1>
                         <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
-                            Software Developer
+                            {homeConfig.title}
                         </h2>
                         <p className="text-lg text-gray-400 mb-8 max-w-lg">
-                            Specialized in C# .NET, SQL Server, ETL (SSIS), and GitHub Actions.
-                            Building robust software solutions for complex business problems.
+                            {homeConfig.description}
                         </p>
 
                         <div className="flex flex-wrap gap-4">
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <Link to="/contact" className="btn bg-blue-600 hover:bg-blue-700 text-white flex items-center">
+                                <Link to="/contact" className="btn bg-primary-600 hover:bg-primary-700 text-white flex items-center">
                                     Contact Me <FaArrowRight className="ml-2" />
                                 </Link>
                             </motion.div>
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
                             transition={{ delay: 0.3 }}
                         >
                             <motion.a
-                                href="https://github.com/yourusername"
+                                href={contactConfig.social.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                                 <FaGithub size={24} />
                             </motion.a>
                             <motion.a
-                                href="https://linkedin.com/in/yourusername"
+                                href={contactConfig.social.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
@@ -71,7 +71,7 @@ const Home: React.FC = () => {
                                 <FaLinkedin size={24} />
                             </motion.a>
                             <motion.a
-                                href="mailto:your.email@example.com"
+                                href={`mailto:${contactConfig.email}`}
                                 className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.9 }}

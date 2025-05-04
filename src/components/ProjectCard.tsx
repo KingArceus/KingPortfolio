@@ -19,12 +19,12 @@ function ProjectCard({ title, description, technologies, githubLink, demoLink, i
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 text-primary-600">{title}</h3>
       <p className="text-gray-400 mb-4 flex-grow">{description}</p>
       
       <div className="mb-4 flex flex-wrap">
         {technologies.map((tech, i) => (
-          <span key={i} className="px-3 py-1 rounded-full text-sm font-medium bg-gray-700 text-gray-300 m-1">
+          <span key={i} className="skill-tag">
             {tech}
           </span>
         ))}
@@ -36,7 +36,7 @@ function ProjectCard({ title, description, technologies, githubLink, demoLink, i
             href={githubLink} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-200"
+            className="flex items-center text-gray-400 hover:text-primary-600 transition-colors duration-200"
           >
             <FaGithub className="mr-1" /> GitHub
           </a>
@@ -46,7 +46,7 @@ function ProjectCard({ title, description, technologies, githubLink, demoLink, i
             href={demoLink} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-200"
+            className="flex items-center text-gray-400 hover:text-primary-600 transition-colors duration-200"
           >
             <FaExternalLinkAlt className="mr-1" /> Live Demo
           </a>
