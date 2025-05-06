@@ -16,8 +16,14 @@ export interface ExperienceType {
   description: string;
 }
 
+export interface AchievementType {
+  year: string;
+  title: string;
+  description: string;
+}
+
 // Skill types
 export interface SkillType {
   name: string;
-  level: number;
+  level: string;
 }

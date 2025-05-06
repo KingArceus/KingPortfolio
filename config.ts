@@ -48,33 +48,101 @@ export const aboutConfig = {
 
 export const experienceConfig = {
   title: 'Work Experience',
-  items: [
+  experiences: [
     {
-      company: 'Company Name',
-      position: 'Position',
-      period: '2020 - Present',
-      description: 'Description of your role and achievements.',
+      year: '2024 - Present',
+      title: 'Software Developer (Middle)',
+      company: 'RikkeiSoft, Hanoi, Vietnam',
+      description: 'Developing business solutions using C# .NET and SQL Server for big UK financial customers. Leading ETL development with SSIS and implementing CI/CD pipelines with GitHub Actions. Joined in on-call support to ensured business continuity.'
     },
-    // Add more experience items as needed
+    {
+      year: '2023 - 2024',
+      title: 'Software Developer (Junior)',
+      company: 'FPT Software, Hoa Lac Hi-Tech Park, Hanoi, Vietnam',
+      description: 'Led migration and development of a multi-app winform system using C#, .NET Framework, and VB. Participated in environments configuration and databases management including Orable and SQL Server, performed code reviews, and stakeholder collaboration.'
+    },
+    {
+      year: '2023',
+      title: 'Software Developer (Fresher)',
+      company: 'FPT Software, Hoa Lac Hi-Tech Park, Hanoi, Vietnam',
+      description: 'Aquired knowledge and experience in automating CI/CD pipelines with Docker and Kubernetes, building serverless AWS architectures, while concurrently working on a project to optimizing cross-platform C/C++ systems for performance and reliability.'
+    },
+    {
+      year: '2022 - 2023',
+      title: 'Associate Researcher',
+      company: 'Hanoi University of Science and Technology',
+      description: 'Gained hands-on experience with Software Development using C/C++, Python and Matlab for simulation of electric batteries in associated industrial collaborations as well as graduated projects.'
+    }
   ],
+  achievements: [
+    {
+      year: '2025',
+      title: 'Project of the year',
+      description: 'Contributed in the successful go-live of the Price Management System, delivering a high-impact solution that met business goals on time and with excellency.'
+    },
+    {
+      year: '2024',
+      title: 'Project MVP',
+      description: 'Recognized for exceptional contributions, providing key support to both development and testing teams beside of outstanding performance.'
+    }
+  ]
 };
 
 export const skillsConfig = {
   title: 'Skills & Expertise',
-  categories: [
+  skills: [
     {
-      title: 'Frontend',
-      skills: ['React', 'TypeScript', 'HTML', 'CSS', 'JavaScript'],
+      name: 'Programming Languages',
+      skills: [
+        { name: 'C# .NET', level: 3 },
+        { name: 'SQL', level: 3 },
+        { name: 'C/C++', level: 1 },
+        { name: 'VB', level: 2 },
+        { name: 'JavaScript', level: 2 },
+        { name: 'HTML/CSS', level: 1 },
+        { name: 'Python', level: 1 }
+      ]
     },
     {
-      title: 'Backend',
-      skills: ['Node.js', 'Python', 'SQL', 'RESTful APIs'],
+      name: 'Databases',
+      skills: [
+        { name: 'Relational Database', level: 3 },
+        { name: 'Database Design', level: 2 },
+        { name: 'Query Optimization', level: 2 },
+        { name: 'NoSQL (MongoDB)', level: 1 }
+      ]
     },
     {
-      title: 'Tools & Technologies',
-      skills: ['Git', 'Docker', 'AWS', 'CI/CD'],
+      name: 'ETL',
+      skills: [
+        { name: 'SSIS', level: 3 },
+        { name: 'ETL Design Patterns', level: 2 },
+        { name: 'Data Integration', level: 2 },
+        { name: 'Data Quality', level: 2 }
+      ]
     },
-  ],
+    {
+      name: 'DevOps',
+      skills: [
+        { name: 'GitHub Actions', level: 2 },
+        { name: 'CI/CD Pipelines', level: 2 },
+        { name: 'Azure DevOps', level: 2 },
+        { name: 'AWS', level: 1 },
+        { name: 'Docker', level: 1 },
+        { name: 'Kubernetes', level: 1 }
+      ]
+    },
+    {
+      name: 'Soft Skills',
+      skills: [
+        { name: 'Problem Solving', level: 3 },
+        { name: 'Team Collaboration', level: 3 },
+        { name: 'Communication', level: 3 },
+        { name: 'Agile Methodologies', level: 2 },
+        { name: 'English', level: 4 }
+      ]
+    }
+  ]
 };
 
 export const projectsConfig = {

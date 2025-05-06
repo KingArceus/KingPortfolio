@@ -6,18 +6,20 @@ interface SkillBarProps {
 }
 
 function SkillBar({ name, level }: SkillBarProps) {
-  const getProficiencyLabel = (level: number): string => {
-    if (level >= 90) return 'Expert';
-    if (level >= 80) return 'Advanced';
-    if (level >= 70) return 'Intermediate';
-    return 'Beginner';
+  const getProficiencyLevel = (level: number): string => {
+    if (level === 4) return 'Expert';
+    if (level === 3) return 'Advanced';
+    if (level === 2) return 'Intermediate';
+    if (level === 1) return 'Beginner';
+    return 'Fundamental';
   };
 
   const getProficiencyColor = (level: number): string => {
-    if (level >= 90) return 'border-emerald-600 text-emerald-400';
-    if (level >= 80) return 'border-blue-600 text-blue-400';
-    if (level >= 70) return 'border-purple-600 text-purple-400';
-    return 'border-orange-600 text-orange-400';
+    if (level === 4) return 'border-orange-600 text-orange-400';
+    if (level === 3) return 'border-purple-600 text-purple-400';
+    if (level === 2) return 'border-blue-600 text-blue-400';
+    if (level === 1) return 'border-green-600 text-green-400';
+    return 'border-white-600 text-white-400';
   };
 
   return (
@@ -30,7 +32,7 @@ function SkillBar({ name, level }: SkillBarProps) {
     >
       <span>{name}</span>
       <span className="ml-2 px-1.5 py-0.5 text-xs rounded-full bg-primary-800/50">
-        {getProficiencyLabel(level)}
+        {getProficiencyLevel(level)}
       </span>
     </motion.div>
   );
