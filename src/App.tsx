@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/KingPortfolio">
+    <Router basename="/KingPortfolio/">
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-secondary-50">
         <Navbar isScrolled={isScrolled} />

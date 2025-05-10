@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -15,7 +15,7 @@ function Navbar({ isScrolled }: NavbarProps) {
   };
 
   const navLinks = [
-    { path: '//', label: 'Home' },
+    { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/experience', label: 'Experience' },
     { path: '/skills', label: 'Skills' },
@@ -32,10 +32,10 @@ function Navbar({ isScrolled }: NavbarProps) {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-10 flex justify-between items-center">
-        <Link to="//" className="text-2xl font-bold text-white font-heading">
+        <NavLink to="/" className="text-2xl font-bold text-white font-heading">
           <span className="text-primary-600">Khang</span>
           <span className="font-bold text-white">Dynasty</span>
-        </Link>
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
