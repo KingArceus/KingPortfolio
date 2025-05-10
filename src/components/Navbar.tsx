@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 interface NavbarProps {
@@ -31,7 +31,7 @@ function Navbar({ isScrolled }: NavbarProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-10 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-10 flex justify-between items-center">
         <NavLink to="/" className="text-2xl font-bold text-white font-heading">
           <span className="text-primary-600">Khang</span>
           <span className="font-bold text-white">Dynasty</span>
@@ -57,40 +57,55 @@ function Navbar({ isScrolled }: NavbarProps) {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-300 hover:text-primary-400 focus:outline-none"
+          className="md:hidden text-gray-300 hover:text-primary-400 focus:outline-none p-2"
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            className="md:hidden bg-gray-900 shadow-lg absolute top-full left-0 right-0"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `font-medium py-2 transition-colors duration-200 ${isActive
-                      ? 'text-primary-600'
-                      : 'text-secondary-700 hover:text-primary-600'
-                    }`
-                  }
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="md:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-md z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex justify-end p-4">
+                  <button
+                    className="text-gray-300 hover:text-primary-400 focus:outline-none p-2"
+                    onClick={toggleMenu}
+                    aria-label="Close menu"
+                  >
+                    <FaTimes size={24} />
+                  </button>
+                </div>
+                <div className="flex-1 flex flex-col items-center justify-center space-y-8">
+                  {navLinks.map((link) => (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      className={({ isActive }) =>
+                        `text-2xl font-medium transition-colors duration-200 ${
+                          isActive
+                            ? 'text-primary-600'
+                            : 'text-gray-300 hover:text-primary-400'
+                        }`
+                      }
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </NavLink>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
