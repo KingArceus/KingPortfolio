@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="/resume.pdf"
+                href="./resume.pdf"
                 download
                 className="btn btn-primary flex items-center"
               >

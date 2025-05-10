@@ -32,7 +32,7 @@ const About: React.FC = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="/resume.pdf"
+                href="./resume.pdf"
                 download
                 className="btn btn-primary flex items-center"
               >
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/squirtle.png"
+              src="./squirtle.png"
               alt="Profile"
               className="z-10 w-72 h-72 object-cover rounded-full border-4 border-white shadow-xl mx-auto"
             />

@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                             }}
                         >
                             <img
-                                src="/Demo.jpg"
+                                src="./Demo.jpg"
                                 alt="Profile"
                                 className="w-full h-full object-cover right-0 overflow-hidden"
                             />
