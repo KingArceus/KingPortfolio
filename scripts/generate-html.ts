@@ -24,7 +24,7 @@ const generateHTML = () => {
   </body>
 </html>`;
 
-  const outputPath = path.join(process.cwd(), 'index.html');
+  const outputPath = './index.html';
   fs.writeFileSync(outputPath, html);
   console.log('index.html generated successfully!');
 };
