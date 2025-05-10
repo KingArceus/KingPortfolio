@@ -2,7 +2,7 @@
   "name": "KingPortfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kingarceus.github.io/KingPortfolio/",
+  "homepage": "https://kingarceus.github.io/KingPortfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
