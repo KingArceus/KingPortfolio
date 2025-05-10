@@ -14,6 +14,15 @@ function Navbar({ isScrolled }: NavbarProps) {
     setIsOpen(!isOpen);
   };
 
+  const navLinks = [
+    { path: '//', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/skills', label: 'Skills' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' }
+  ];
+
   return (
     <motion.nav
       className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled ? 'shadow-xl py-2' : 'py-4'
@@ -23,79 +32,27 @@ function Navbar({ isScrolled }: NavbarProps) {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-10 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-white font-heading">
+        <Link to="//" className="text-2xl font-bold text-white font-heading">
           <span className="text-primary-600">Khang</span>
           <span className="font-bold text-white">Dynasty</span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-600'
-                : 'text-primary-500 hover:text-primary-600'
-              }`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-600'
-                : 'text-primary-500 hover:text-primary-600'
-              }`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/experience"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-700'
-                : 'text-primary-500 hover:text-primary-700'
-              }`
-            }
-          >
-            Experience
-          </NavLink>
-          <NavLink
-            to="/skills"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-700'
-                : 'text-primary-500 hover:text-primary-700'
-              }`
-            }
-          >
-            Skills
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-700'
-                : 'text-primary-500 hover:text-primary-700'
-              }`
-            }
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${isActive
-                ? 'text-primary-700'
-                : 'text-primary-500 hover:text-primary-700'
-              }`
-            }
-          >
-            Contact
-          </NavLink>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `font-medium transition-colors duration-200 ${isActive
+                  ? 'text-primary-600'
+                  : 'text-primary-500 hover:text-primary-600'
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </div>
 
         {/* Mobile Menu Button */}
@@ -116,78 +73,21 @@ function Navbar({ isScrolled }: NavbarProps) {
             transition={{ duration: 0.3 }}
           >
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </NavLink>
-              <NavLink
-                to="/experience"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Experience
-              </NavLink>
-              <NavLink
-                to="/skills"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Skills
-              </NavLink>
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Projects
-              </NavLink>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `font-medium py-2 transition-colors duration-200 ${isActive
-                    ? 'text-primary-600'
-                    : 'text-secondary-700 hover:text-primary-600'
-                  }`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </NavLink>
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `font-medium py-2 transition-colors duration-200 ${isActive
+                      ? 'text-primary-600'
+                      : 'text-secondary-700 hover:text-primary-600'
+                    }`
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </NavLink>
+              ))}
             </div>
           </motion.div>
         )}
