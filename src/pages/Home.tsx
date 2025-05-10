@@ -97,7 +97,7 @@ const Home: React.FC = () => {
                         >
                             <img
                                 src="./Demo.jpg"
-                                alt="Profile"
+                                alt="Profile-lg"
                                 className="w-full h-full object-cover right-0 overflow-hidden"
                             />
                         </motion.div>

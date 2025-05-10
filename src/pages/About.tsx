@@ -49,7 +49,7 @@ const About: React.FC = () => {
           >
             <img
               src="./squirtle.png"
-              alt="Profile"
+              alt="Profile-sm"
               className="z-10 w-72 h-72 object-cover rounded-full border-4 border-white shadow-xl mx-auto"
             />
           </motion.div>
