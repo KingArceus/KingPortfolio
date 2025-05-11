@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 import { ProjectType } from '../types';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import useScreenSize from '../Utils/GetScreenSize';
 
 interface GitHubRepo {
   name: string;
@@ -20,6 +21,49 @@ function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
   const [displayedProjects, setDisplayedProjects] = useState<ProjectType[]>([]);
   const carousel = useRef<HTMLDivElement>(null);
+  const screenSize = useScreenSize();
+
+  // Calculate animation offset based on screen size
+  const getAnimationOffset = () => {
+    switch (screenSize) {
+      case 'xs':
+      case 'sm':
+        return 4; // Mobile
+      case 'md':
+        return 9.5; // Tablet
+      case 'lg':
+      case 'xl':
+      case '2xl':
+        return 8.5; // Desktop
+      default:
+        return 8.5;
+    }
+  };
+
+  // Calculate number of projects to show based on screen size
+  const getProjectsPerPage = () => {
+    switch (screenSize) {
+      case 'xs':
+      case 'sm':
+        return 1; // Show 1 project on mobile
+      case 'md':
+        return 2; // Show 2 projects on tablet
+      case 'lg':
+      case 'xl':
+      case '2xl':
+        return 3; // Show 3 projects on desktop
+      default:
+        return 3;
+    }
+  };
+
+  // Handle screen resize
+  useEffect(() => {
+    const totalPages = projects.length - (getProjectsPerPage() - 1);
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [screenSize, projects.length, currentPage]);
 
   useEffect(() => {
     const fetchGitHubProjects = async () => {
@@ -45,7 +89,10 @@ function Projects() {
           }));
 
         setProjects(transformedProjects);
-        setDisplayedProjects(transformedProjects.slice(currentPage - 1, currentPage + 2));
+        // Initialize displayed projects with the first set
+        const initialProjects = transformedProjects.slice(0, getProjectsPerPage());
+        setDisplayedProjects(initialProjects);
+        setCurrentPage(1);
         setLoading(false);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
@@ -56,7 +103,16 @@ function Projects() {
     fetchGitHubProjects();
   }, []);
 
-  const totalProjects = projects.length - 2;
+  // Update displayed projects when current page changes
+  useEffect(() => {
+    if (projects.length > 0) {
+      const startIndex = currentPage - 1;
+      const endIndex = startIndex + getProjectsPerPage();
+      setDisplayedProjects(projects.slice(startIndex, endIndex));
+    }
+  }, [currentPage, projects, screenSize]);
+
+  const totalProjects = projects.length - (getProjectsPerPage() - 1);
 
   const handlePreviousPage = () => {
     setCurrentPage(prev => {
@@ -76,7 +132,7 @@ function Projects() {
       const newPage = prev + 1;
       if (newPage > totalProjects) {
         // Add projects to the end
-        const newProjects = [...displayedProjects, ...projects.slice(0, 3)];
+        const newProjects = [...displayedProjects, ...projects.slice(0, getProjectsPerPage())];
         setDisplayedProjects(newProjects);
         return 1;
       }
@@ -102,18 +158,18 @@ function Projects() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="container mx-auto pt-24 pb-20 px-10">
+      <div className="container mx-auto pt-16 md:pt-24 pb-20 px-4 md:px-10">
         <SectionTitle 
           title="Projects" 
           subtitle="A showcase of my recent work and technical projects"
         />
         
-        <div className="relative grid gap-8 md:grid-cols-2 lg:grid-cols-3 min-h-[600px] overflow-hidden">
+        <div className="relative grid gap-4 md:gap-8 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-[500px] md:min-h-[600px] overflow-hidden">
           <motion.div
             ref={carousel}
-            className="flex gap-8 w-full"
+            className="flex gap-4 md:gap-8 w-full"
             animate={{
-              x: `-${(currentPage - 1) * (100 + 6.9)}%`
+              x: `-${(currentPage - 1) * (100 + getAnimationOffset())}%`
             }}
             transition={{
               type: "spring",
@@ -124,7 +180,7 @@ function Projects() {
             {projects.map((project, index) => (
               <motion.div
                 key={`${project.githubLink}-${index}`}
-                className="w-full flex-shrink-0"
+                className="w-full flex-shrink-0 px-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -144,21 +200,21 @@ function Projects() {
 
         {/* Pagination Controls */}
         <motion.div 
-          className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm py-4 z-50"
+          className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm py-3 md:py-4 z-50"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
           <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex justify-center items-center space-x-6">
+            <div className="flex flex-col items-center space-y-3 md:space-y-4">
+              <div className="flex justify-center items-center space-x-4 md:space-x-6">
                 <motion.button
                   onClick={handlePreviousPage}
-                  className="p-3 rounded-full text-white hover:bg-gray-800 transition-colors"
+                  className="p-2 md:p-3 rounded-full text-white hover:bg-gray-800 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaChevronLeft size={24} />
+                  <FaChevronLeft size={20} className="md:w-6 md:h-6" />
                 </motion.button>
                 
                 <motion.div 
@@ -167,23 +223,23 @@ function Projects() {
                   animate={{ opacity: 1 }}
                   key={currentPage}
                 >
-                  <span className="text-lg font-medium">{currentPage}</span>
+                  <span className="text-base md:text-lg font-medium">{currentPage}</span>
                   <span className="text-gray-400">/</span>
                   <span className="text-gray-400">{totalProjects}</span>
                 </motion.div>
                 
                 <motion.button
                   onClick={handleNextPage}
-                  className="p-3 rounded-full text-white hover:bg-gray-800 transition-colors"
+                  className="p-2 md:p-3 rounded-full text-white hover:bg-gray-800 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaChevronRight size={24} />
+                  <FaChevronRight size={20} className="md:w-6 md:h-6" />
                 </motion.button>
               </div>
 
               {/* Slider Navigation */}
-              <div className="w-full max-w-md h-1 bg-gray-800 rounded-full relative">
+              <div className="w-full max-w-[280px] md:max-w-md h-1 bg-gray-800 rounded-full relative">
                 <motion.div
                   className="absolute top-0 left-0 h-full bg-blue-500 rounded-full"
                   initial={false}
