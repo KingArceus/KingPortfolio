@@ -7,8 +7,8 @@ const Home: React.FC = () => {
     return (
         <div className="min-h-screen flex flex-col bg-gray-900">
             {/* Hero Section */}
-            <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-16">
-                <div className="container mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center min-h-[calc(100vh-80px)] py-10 md:py-0">
+            <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                <div className="container mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center min-h-screen py-10 md:py-0 pt-24">
                     <motion.div
                         className="w-full md:w-3/5 mb-10 md:mb-0 text-center md:text-left"
                         initial={{ opacity: 0, x: -50 }}
@@ -82,13 +82,13 @@ const Home: React.FC = () => {
                     </motion.div>
 
                     <motion.div
-                        className="w-full md:w-2/5 flex justify-center md:justify-end relative mt-10 md:mt-0"
+                        className="w-full md:w-2/5 flex justify-center md:justify-end relative mt-10 md:mt-0 min-h-screen"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
                         <motion.div
-                            className="w-full md:w-auto h-[300px] md:h-full"
+                            className="w-full md:w-auto h-full md:h-full min-h-screen"
                             transition={{
                                 duration: 8,
                                 repeat: Infinity,
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                             <img
                                 src="./Demo.jpg"
                                 alt="Profile"
-                                className="w-full h-full object-cover rounded-lg md:rounded-none"
+                                className="w-full min-h-screen object-cover rounded-lg md:rounded-none"
                             />
                         </motion.div>
                     </motion.div>

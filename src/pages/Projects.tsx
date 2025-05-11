@@ -22,21 +22,17 @@ function Projects() {
   const [displayedProjects, setDisplayedProjects] = useState<ProjectType[]>([]);
   const carousel = useRef<HTMLDivElement>(null);
   const screenSize = useScreenSize();
+  const componentRef = useRef<HTMLDivElement>(null);
+  const [cardWidth, setCardWidth] = useState<number>(0);
 
-  // Calculate animation offset based on screen size
-  const getAnimationOffset = () => {
+  // Calculate gap size based on screen size
+  const getGapSize = () => {
     switch (screenSize) {
       case 'xs':
       case 'sm':
-        return 3.5; // Mobile
-      case 'md':
-        return 9.5; // Tablet
-      case 'lg':
-      case 'xl':
-      case '2xl':
-        return 8.5; // Desktop
+        return 16; // 0.25rem (4px)
       default:
-        return 8.5;
+        return 32;
     }
   };
 
@@ -48,10 +44,6 @@ function Projects() {
         return 1; // Show 1 project on mobile
       case 'md':
         return 2; // Show 2 projects on tablet
-      case 'lg':
-      case 'xl':
-      case '2xl':
-        return 3; // Show 3 projects on desktop
       default:
         return 3;
     }
@@ -63,6 +55,17 @@ function Projects() {
     if (currentPage > totalPages) {
       setCurrentPage(totalPages);
     }
+
+    const updateWidth = () => {
+      if (componentRef.current) {
+        setCardWidth(componentRef.current.offsetWidth);
+      }
+    };
+
+    updateWidth(); // Set initial width
+    window.addEventListener('resize', updateWidth); // Optional: update on resize
+
+    return () => window.removeEventListener('resize', updateWidth);
   }, [screenSize, projects.length, currentPage]);
 
   useEffect(() => {
@@ -163,13 +166,12 @@ function Projects() {
           title="Projects" 
           subtitle="A showcase of my recent work and technical projects"
         />
-        
         <div className="relative grid gap-4 md:gap-8 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-[500px] md:min-h-[600px] overflow-hidden">
           <motion.div
             ref={carousel}
             className="flex gap-4 md:gap-8 w-full"
             animate={{
-              x: `-${(currentPage - 1) * (100 + getAnimationOffset())}%`
+              x: `-${(currentPage - 1) * (cardWidth + getGapSize())}px`
             }}
             transition={{
               type: "spring",
@@ -179,6 +181,7 @@ function Projects() {
           >
             {projects.map((project, index) => (
               <motion.div
+                ref={componentRef}
                 key={`${project.githubLink}-${index}`}
                 className="w-full flex-shrink-0 px-2"
                 initial={{ opacity: 0 }}
