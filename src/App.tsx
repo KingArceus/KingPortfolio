@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/KingPortfolio/">
+    <Router>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-secondary-50">
         <Navbar isScrolled={isScrolled} />
