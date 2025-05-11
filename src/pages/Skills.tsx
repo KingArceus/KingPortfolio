@@ -24,7 +24,7 @@ function Skills() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="container mx-auto pt-20 md:pt-32 pb-10 md:pb-20 px-4 md:px-10">
+      <div className="container mx-auto pt-24 md:pt-24 pb-10 md:pb-20 px-4 md:px-10">
         <SectionTitle
           title={skillsConfig.title}
           subtitle="A comprehensive overview of my technical skills and competencies"

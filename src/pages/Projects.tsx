@@ -158,7 +158,7 @@ function Projects() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <div className="container mx-auto pt-16 md:pt-24 pb-20 px-4 md:px-10">
+      <div className="container mx-auto pt-24 md:pt-24 pb-20 px-4 md:px-10">
         <SectionTitle 
           title="Projects" 
           subtitle="A showcase of my recent work and technical projects"

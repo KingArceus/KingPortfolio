@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     return (
         <div className="min-h-screen flex flex-col bg-gray-900">
             {/* Hero Section */}
-            <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20">
+            <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-16">
                 <div className="container mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center min-h-[calc(100vh-80px)] py-10 md:py-0">
                     <motion.div
                         className="w-full md:w-3/5 mb-10 md:mb-0 text-center md:text-left"
