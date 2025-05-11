@@ -28,7 +28,7 @@ function Projects() {
     switch (screenSize) {
       case 'xs':
       case 'sm':
-        return 4; // Mobile
+        return 3.5; // Mobile
       case 'md':
         return 9.5; // Tablet
       case 'lg':
