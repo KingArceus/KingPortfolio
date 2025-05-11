@@ -1,10 +1,12 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
   email: string;
   message: string;
+  [key: string]: string;
 }
 
 interface FormStatus {
@@ -40,17 +42,20 @@ function ContactForm() {
     e.preventDefault();
     setLoading(true);
     
+    // Debug: Log environment variables
+    console.log('EmailJS Config:', {
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    });
+    
     try {
-      // Replace these with your actual EmailJS service, template, and user IDs
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   formData,
-      //   'YOUR_USER_ID'
-      // );
-      
-      // Simulating EmailJS send for demo purposes
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
+      );
       
       setStatus({
         submitted: true,
