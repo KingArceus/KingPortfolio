@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                             }}
                         >
                             <img
-                                src="./Demo.jpg"
+                                src="./ProfileH.jpg"
                                 alt="Profile"
                                 className="w-full min-h-screen object-cover rounded-lg md:rounded-none"
                             />

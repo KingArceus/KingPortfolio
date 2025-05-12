@@ -46,6 +46,7 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="flex justify-center items-center"
           >
             <img
               src="./squirtle.png"
