@@ -39,9 +39,9 @@ export const aboutConfig = {
       year: '2018 - 2023',
     },
     {
-      title: 'Microsoft Certified Solutions Developer',
-      institution: 'Microsoft',
-      year: '2021',
+      title: 'AWS Cloud Developer Certification',
+      institution: 'Udacity - FPT Software',
+      year: '2023',
     },
   ],
 };
@@ -99,7 +99,6 @@ export const skillsConfig = {
         { name: 'C/C++', level: 1 },
         { name: 'VB', level: 2 },
         { name: 'JavaScript', level: 2 },
-        { name: 'HTML/CSS', level: 1 },
         { name: 'Python', level: 1 }
       ]
     },
@@ -133,12 +132,12 @@ export const skillsConfig = {
       ]
     },
     {
-      name: 'Soft Skills',
+      name: 'Other Tools & Soft Skills',
       skills: [
+        { name: 'Git', level: 3 },
+        { name: 'Jira', level: 3 },
         { name: 'Problem Solving', level: 3 },
-        { name: 'Team Collaboration', level: 3 },
         { name: 'Communication', level: 3 },
-        { name: 'Agile Methodologies', level: 2 },
         { name: 'English', level: 4 }
       ]
     }
