@@ -50,8 +50,12 @@ const About: React.FC = () => {
           >
             <img
               src="./squirtle.png"
-              alt="Profile-sm"
+              alt="Profile picture"
+              loading="lazy"
+              width={288}
+              height={288}
               className="z-10 w-72 h-72 object-cover rounded-full border-4 border-white shadow-xl mx-auto"
+              sizes="(max-width: 768px) 288px, 288px"
             />
           </motion.div>
         </motion.div>

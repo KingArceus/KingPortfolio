@@ -145,8 +145,27 @@ function Projects() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading projects...</div>
+      <div className="min-h-screen bg-gray-900">
+        <div className="container mx-auto pt-24 md:pt-24 pb-20 px-4 md:px-10">
+          <SectionTitle 
+            title="Projects" 
+            subtitle="A showcase of my recent work and technical projects"
+          />
+          <div className="relative grid gap-4 md:gap-8 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-[500px] md:min-h-[600px] overflow-hidden">
+            {Array.from({ length: getProjectsPerPage() }).map((_, index) => (
+              <ProjectCard
+                key={index}
+                title=""
+                description=""
+                technologies={[]}
+                githubLink=""
+                demoLink={null}
+                index={index}
+                isLoading={true}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

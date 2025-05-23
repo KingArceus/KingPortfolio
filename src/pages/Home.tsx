@@ -97,8 +97,12 @@ const Home: React.FC = () => {
                         >
                             <img
                                 src="./ProfileH.jpg"
-                                alt="Profile"
+                                alt="Professional profile picture"
+                                loading="lazy"
+                                width={800}
+                                height={1200}
                                 className="w-full min-h-screen object-cover rounded-lg md:rounded-none"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </motion.div>
                     </motion.div>
